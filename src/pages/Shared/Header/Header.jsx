@@ -78,14 +78,23 @@ const Header = () => {
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>INSTRUCTOR</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>DASHBOARD</ActiveLink></li>
                     </ul>
-                    <div className=''>
+                    <div>
                         <div className=" h-auto flex justify-end items-center border-2 rounded-full p-1">
                             <Link to='/'><button className='btn btn-sm rounded-full'>Log-In</button></Link>
                             <h3 className=''><HiOutlineUserCircle className='text-3xl' /></h3>
+                            {/* {
+                            user ?
+                                <button onClick={logOut} className='btn btn-ghost text-white'>Log-Out</button>
+                                : <Link to='/'><button className='btn btn-sm rounded-full'>Log-In</button></Link>
+                        }
+                        {
+                            user ?
+                                user.photoURL ?
+                                    <img src={user?.photoURL} title={user?.displayName} className='w-7 h-7 rounded-full' alt="" />
+                                    : <h3 title={user?.displayName}><HiOutlineUserCircle className='text-3xl' /></h3>
+                                : ''
+                        } */}
                         </div>
-
-                        
-
                     </div>
                     <label className="swap swap-rotate">
 
