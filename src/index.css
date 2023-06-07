@@ -1,1 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@layer components {
+  .container{
+    @apply mx-auto px-[2.5%];
+  }
+  .main-btn {
+    @apply btn btn-ghost  border-b-white border-b-4 rounded-xl
+  }
+}

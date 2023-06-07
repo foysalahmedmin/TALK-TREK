@@ -1,0 +1,31 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 188" width="236" height="188">
+	<title>file-ai</title>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #8dc63f } 
+		.s1 { fill: #1975bb } 
+		.t2 { font-size: 79px;fill: #88c946;font-weight: bold;font-family: "Myriad Pro" } 
+		.t3 { font-size: 65px;fill: #88c946;font-weight: bold;font-family: "Myriad Pro" } 
+		.t4 { font-size: 65px;fill: #1e78c2;font-family: "Myriad Pro" } 
+		.t5 { font-size: 41px;fill: #1e78c2;font-weight: 300;font-family: "Sansation-Light", "Sansation" } 
+		.t6 { font-size: 41px;fill: #88c946;font-weight: 300;font-family: "Sansation-Light", "Sansation" } 
+	</style>
+	<g id="Layer 1">
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<path id="&lt;Path&gt;" class="s0" d="m209.3 43.2h-105.6c-14.8 0-27.1 10.9-27.1 24.4 0 0-0.1 22.7 0 23.8 1.5 13.6 12.8 25 27.4 25.9 0.7 0 60.1 0 60.1 0 18 0 32.6-14.6 32.6-32.6v-20.2h-13v20.2c0 10.8-8.8 19.6-19.6 19.6h-60.1c-7.6-0.9-13.7-6.3-15.2-13.6v-23.1c0-7.5 6.7-13.5 14.9-13.5h105.6c8.2 0 14.9 6 14.9 13.5v60.3c0 7.6-6.9 13.5-14.9 13.5h-8.3l7.8 23.2-23-23.2h-87.8c-3.9 0-7 2.4-7 5.4 0 3 3.1 5.5 7 5.5h84.9l29.8 29.9c10.1 10.2 14.7 7.4 10.1-6.2l-8.1-24.2c12.3-2.3 21.5-12.1 21.5-23.9v-60.3c0-13.5-12.1-24.4-26.9-24.4z"/>
+				<path id="&lt;Path&gt;" class="s1" d="m164.1-0.1h-131.7c-18 0-32.6 14.6-32.6 32.6v71.8c0 13.3 8.1 24.9 19.7 29.9l-11.6 35.6c-4.4 13.6 0.2 16.4 10.2 6.1l38-39c0 0 17.2 0 17.2 0 3.7-0.3 6.6-3.1 6.6-6.6 0-3.4-2.9-6.2-6.6-6.5-0.1 0-18 0-18 0l-33.5 34.4 10.6-34.4c-10.6 0-19.6-8.6-19.6-19.5v-71.8c0-10.8 8.8-19.5 19.6-19.5h131.7c10 0 19.6 7.5 19.6 20.5h13c0-20.3-15.6-33.6-32.6-33.6z"/>
+			</g>
+			<g id="&lt;Group&gt;">
+				<text id=" TalkTrek" style="transform: matrix(1,0,0,1,718.061,561.419)" >
+					<tspan x="0" y="0" class="t2"> </tspan><tspan  y="0" class="t3">T</tspan><tspan  y="0" class="t3">a</tspan><tspan  y="0" class="t3">l</tspan><tspan  y="0" class="t3">k</tspan><tspan  y="0" class="t4">T</tspan><tspan  y="0" class="t4">r</tspan><tspan  y="0" class="t4">e</tspan><tspan  y="0" class="t4">k</tspan><tspan  y="0" class="t4">
+</tspan>
+				</text>
+				<text id="Company Slogan" style="transform: matrix(1,0,0,1,694.79,616.33)" >
+					<tspan x="0" y="0" class="t5">Company</tspan><tspan  y="0" class="t6"> Slogan
+</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>
