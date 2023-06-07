@@ -6,7 +6,10 @@
   .container{
     @apply mx-auto px-[2.5%];
   }
-  .main-btn {
-    @apply btn btn-ghost  border-b-white border-b-4 rounded-xl
+  .primary-btn {
+    @apply btn text-base-100 tracking-[1.5px] rounded-full border-2 border-transparent bg-primary hover:bg-transparent hover:border-primary hover:text-primary hover:tracking-[2.5px] 
+  }
+  .secondary-btn {
+    @apply btn text-base-100 tracking-[1.5px]  rounded-full border-2 border-transparent bg-secondary hover:bg-transparent hover:border-secondary hover:text-secondary hover:tracking-[2.5px]
   }
 }

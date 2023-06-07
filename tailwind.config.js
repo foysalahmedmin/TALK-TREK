@@ -13,7 +13,18 @@ export default {
     },
   },
   daisyui: {
-    themes: ["light", "dark"],
+    themes: [
+      {
+        mytheme: {
+          "primary": "#8dc63f",
+          "secondary": "#1975bb",
+          "accent": "#37cdbe",
+          "neutral": "#3d4451",
+        },
+      },
+      "dark",
+      "light",
+    ],
   },
   plugins: [
     require('daisyui'),
