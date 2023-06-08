@@ -3,20 +3,30 @@ import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import authImg from "../../assets/AuthImage.svg"
 import Social from "../Shared/Social/Social";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 
 const SingIn = () => {
+    const [passShow, setPassShow] = useState(false)
     const navigate = useNavigate()
     const { SingIn } = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
         SingIn(data?.email, data?.password)
-        .then(result => {
-            const user = result.user
-            console.log(user)
-            navigate('/', { replace: true })
-            reset()
-        })
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate('/', { replace: true })
+                reset()
+            })
+    }
+    const pssShowHandler = (event) => {
+        if (event.target.checked) {
+            setPassShow(true);
+        } else {
+            setPassShow(false);
+        }
     }
     return (
         <section className={`min-h-screen`}>
@@ -41,18 +51,26 @@ const SingIn = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" {...register("password", {required: true})} placeholder="password" name="password" className="input input-bordered" required />
+                                    <span className="relative">
+                                        <input type={passShow ? 'text' : 'password'} {...register("password", { required: true })} placeholder="password" name="password" className="input input-bordered w-full pr-10" required />
+                                        <label className="swap swap-rotate absolute right-3 top-0 bottom-0 my-auto">
+                                            <input onClick={pssShowHandler} type="checkbox" />
+                                            <p className="swap-off fill-current text-xl">
+                                                <FaEye />
+                                            </p>
+                                            <p className="swap-on fill-current text-xl">
+                                                <FaEyeSlash />
+                                            </p>
+                                        </label>
+                                    </span>
                                     {errors.password && <span>{errors.password.message}</span>}
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
                                 </div>
                                 <div className="form-control mt-6">
                                     <input type="submit" value="LogIn" className="primary-btn" />
                                 </div>
                             </form>
                             <p className='text-secondary text-center'>
-                                New here? <Link to= '/signUp' className='text-primary'>Create a new account.</Link>
+                                New here? <Link to='/signUp' className='text-primary'>Create a new account.</Link>
                             </p>
                             <Social />
                         </div>

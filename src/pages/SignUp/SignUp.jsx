@@ -69,7 +69,7 @@ const SignUp = () => {
                                     <input type="password" {...register("password", {
                                         required: true,
                                         pattern: /^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*\d).{6,}$/,
-                                        minLength: 6,
+                                        minLength: 6, 
                                         maxLength: 8
                                     })} placeholder="password" name="password" className="input input-bordered" required />
                                     {errors.password && <span>{errors.password.message}</span>}
