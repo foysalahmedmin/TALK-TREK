@@ -5,6 +5,7 @@ import authImg from "../../assets/AuthImage.svg"
 import Social from "../Shared/Social/Social";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const SingIn = () => {
     const [passShow, setPassShow] = useState(false)
@@ -16,9 +17,17 @@ const SingIn = () => {
         SingIn(data?.email, data?.password)
             .then(result => {
                 const user = result.user
-                console.log(user)
-                navigate('/', { replace: true })
-                reset()
+                if (user) {
+                    navigate('/', { replace: true })
+                    reset()
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Signed-In Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
     }
     const pssShowHandler = (event) => {

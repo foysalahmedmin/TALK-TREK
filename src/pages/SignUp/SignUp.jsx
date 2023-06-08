@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import authImg from "../../assets/AuthImage.svg"
 import Social from "../Shared/Social/Social";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const navigate = useNavigate()
@@ -16,21 +18,39 @@ const SignUp = () => {
             SignUp(data?.email, data?.password)
                 .then(result => {
                     const createdUser = result.user
-                    reset()
                     navigate('/', { replace: true })
-                    userProfileUpdate(createdUser, data.name, data.photoUrl)
+                    UpdateProfile(createdUser, data?.name, data?.photoUrl)
+                        .then((updateResult) => {
+                            reset()
+                            const userResult = updateResult.user
+                            if (userResult) {
+                                Swal.fire({
+                                    position: 'center',
+                                    icon: 'success',
+                                    title: 'Signed-Up Successfully',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                            axios.post('http://localhost:5000/user', {
+                                Name: userResult.displayName,
+                                Email: userResult.email,
+                                Image: userResult.photoURL,
+                                Role: 'student'
+                            })
+                                .then(result => {
+                                    console.log(result)
+                                })
+                        })
+                        .catch((error) => {
+                            const errorMessage = error.message;
+                            console.log(errorMessage)
+                        });
                 })
         }
 
     }
-    const userProfileUpdate = (user, name, image_url) => {
-        UpdateProfile(user, name, image_url)
-            .then(() => { })
-            .catch((error) => {
-                const errorMessage = error.message;
-                console.log(errorMessage)
-            });
-    }
+    
     return (
         <section className={`min-h-screen`}>
             <div className="container">
@@ -69,7 +89,7 @@ const SignUp = () => {
                                     <input type="password" {...register("password", {
                                         required: true,
                                         pattern: /^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*\d).{6,}$/,
-                                        minLength: 6, 
+                                        minLength: 6,
                                         maxLength: 8
                                     })} placeholder="password" name="password" className="input input-bordered" required />
                                     {errors.password && <span>{errors.password.message}</span>}

@@ -1,30 +1,69 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
+
 const Social = () => {
     const navigate = useNavigate()
-    const {SignInWithGoogle, SignInWithGitHub} = useAuth()
+    const { SignInWithGoogle, SignInWithGitHub } = useAuth()
     const googleHandler = () => {
         SignInWithGoogle()
-        .then(result => {
-            console.log(result.user);
-            navigate('/', { replace: true })
-        })
+            .then(result => {
+                navigate('/', { replace: true })
+                const userResult = result.user
+                if (userResult) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Signed-In Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                axios.post('http://localhost:5000/user', {
+                    Name: userResult.displayName,
+                    Email: userResult.email,
+                    Image: userResult.photoURL,
+                    Role: 'student'
+                })
+                    .then(result => {
+                        console.log(result)
+                    })
+            })
     }
     const githubHandler = () => {
         SignInWithGitHub()
-        .then(result => {
-            console.log(result.user);
-            navigate('/', { replace: true })
-        })
+            .then(result => {
+                navigate('/', { replace: true })
+                const userResult = result.user
+                if (userResult) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Signed-In Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                axios.post('http://localhost:5000/user', {
+                    Name: userResult.displayName,
+                    Email: userResult.email,
+                    Image: userResult.photoURL,
+                    Role: 'student'
+                })
+                    .then(result => {
+                        console.log(result)
+                    })
+            })
     }
     return (
         <div className="flex gap-5 justify-center items-center my-5">
             <button onClick={googleHandler}>
-                <FaGoogle className="text-4xl text-primary"  />
+                <FaGoogle className="text-4xl text-primary" />
             </button>
             <button onClick={githubHandler}>
-                <FaGithub className="text-4xl text-primary"  />
+                <FaGithub className="text-4xl text-primary" />
             </button>
         </div>
     );
