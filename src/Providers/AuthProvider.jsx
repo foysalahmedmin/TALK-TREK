@@ -42,14 +42,13 @@ const AuthProvider = ({ children }) => {
             if(currentUser){
                 axios.post('http://localhost:5000/jwt', {email : currentUser.email})
                 .then(result => {
-                    localStorage.setItem("TalkTrekAccessToken", result.data.token)
+                    localStorage.setItem("TalkTrekToken", result.data.token)
                     setLoading(false)
                 })
             }else{
-                localStorage.removeItem("TalkTrekAccessToken")
+                localStorage.removeItem("TalkTrekToken")
             }
         })
-        // unmounting to stop observing more.
         return () => {
             return unsubscribe;
         }
