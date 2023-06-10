@@ -1,12 +1,12 @@
 import { HiDocumentText } from "react-icons/hi";
 import useAuth from "../../../hooks/useAuth";
 import useIsStudent from "../../../hooks/useIsStudent";
-import { useEffect } from "react";
-import axios from "axios";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ClassCard = ({ classItem }) => {
+    const navigate = useNavigate()
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
     const [isStudent] = useIsStudent()
@@ -22,22 +22,37 @@ const ClassCard = ({ classItem }) => {
                 price,
                 classCategory,
             })
+            .then(result => {
+                if(result.data.insertedId) {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Selected',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }else if(result.data.message){
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'warning',
+                        title: `${result.data.message}`,
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
         } else {
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#8dc63f',
+                cancelButtonColor: '#1975bb',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
+                    navigate('/signIn')
                 }
             })
         }
