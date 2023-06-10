@@ -2,9 +2,9 @@ import {useQuery} from '@tanstack/react-query'
 
 const useInstructors = (sort) => {
     const { refetch, isLoading : instructorsLoading, error, data : instructors = [] } = useQuery({
-        queryKey: ['instructor'],
+        queryKey: ['instructors'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/instructor?sort=${sort}`);
+            const res = await fetch(`http://localhost:5000/instructors?sort=${sort}`);
             return res.json();
         } 
     })

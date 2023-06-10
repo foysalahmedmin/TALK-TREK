@@ -1,8 +1,14 @@
 import { HiDocumentText } from "react-icons/hi";
+import useAuth from "../../../hooks/useAuth";
+import useIsStudent from "../../../hooks/useIsStudent";
 
 const ClassCard = ({ classItem }) => {
-    console.log(classItem)
-    const { className, classImage, price, seats, availableSeats, instructorName, instructorImage, classCategory } = classItem;
+    const {user} = useAuth()
+    const [refetch, isStudentLoading, error, isStudent] = useIsStudent()
+    const  {_id, className, classImage, price, seats, availableSeats, instructorName, instructorImage, classCategory } = classItem;
+    const classAddHandler = () =>{
+
+    }
     return (
         <div className="rounded-md overflow-hidden shadow-xl">
             <div className="relative h-60">
@@ -20,7 +26,7 @@ const ClassCard = ({ classItem }) => {
                     <p>Available: {availableSeats}</p>
                 </div>
                 <div className="flex gap-3">
-                    <button className="primary-btn flex-1">Select Class</button>
+                    <button disabled={(user && !isStudent) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
                     <button className="secondary-btn btn-circle"><HiDocumentText className="text-3xl" /></button>
                 </div>
             </div>
