@@ -8,7 +8,7 @@ const useIsStudent = () => {
     const { refetch, isLoading : isStudentLoading, error, data : isStudent } = useQuery({
         queryKey: ['isStudent', user?.email],
         queryFn: async() => {
-            const res = await axiosSecure.get(`http://localhost:5000/user/isStudent/${user?.email}`);
+            const res = await axiosSecure.get(`/user/isStudent/${user?.email}`);
             return res.data.student;
         }
     })

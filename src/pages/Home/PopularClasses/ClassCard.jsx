@@ -1,13 +1,46 @@
 import { HiDocumentText } from "react-icons/hi";
 import useAuth from "../../../hooks/useAuth";
 import useIsStudent from "../../../hooks/useIsStudent";
+import { useEffect } from "react";
+import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ClassCard = ({ classItem }) => {
-    const {user} = useAuth()
-    const [refetch, isStudentLoading, error, isStudent] = useIsStudent()
-    const  {_id, className, classImage, price, seats, availableSeats, instructorName, instructorImage, classCategory } = classItem;
-    const classAddHandler = () =>{
-
+    const { user } = useAuth()
+    const axiosSecure = useAxiosSecure()
+    const [isStudent] = useIsStudent()
+    const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorImage, classCategory } = classItem;
+    const classAddHandler = () => {
+        if (user) {
+            axiosSecure.post(`/classSelect/${user.email}`, {
+                studentEmail: user.email,
+                classId: _id,
+                className,
+                classImage,
+                instructorId,
+                price,
+                classCategory,
+            })
+        } else {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        }
     }
     return (
         <div className="rounded-md overflow-hidden shadow-xl">
@@ -17,7 +50,7 @@ const ClassCard = ({ classItem }) => {
                 <p className="absolute z-20 top-5 left-5 bg-black rounded-md font-bold px-3 py-1 text-primary">${price}</p>
             </div>
             <img className="w-20 h-20 z-20 object-cover shadow-xl relative ml-auto mr-3 -mt-10 rounded-full" src={instructorImage} alt="" />
-            <div className="relative bg-base-300 -mt-10 p-3">
+            <div className={`relative bg-base-300 -mt-10 p-3 ${availableSeats < 1 && 'bg-red-100'}`}>
                 <p className="text-xs opacity-50">{classCategory}</p>
                 <h1 className="text-primary font-semibold text-3xl">{className}</h1>
                 <p className="uppercase mb-1">With {instructorName}</p>

@@ -1,10 +1,8 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import ClassCard from '../../pages/Home/popularClasses/ClassCard';
 
 const ClassSkeletonCard = ({cardCount}) => {
     const count = Array.from(Array(cardCount).keys())
-    console.log(count)
     return (
         <>
             {
