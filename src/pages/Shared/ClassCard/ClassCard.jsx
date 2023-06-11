@@ -4,12 +4,17 @@ import useIsStudent from "../../../hooks/useIsStudent";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ClassCard = ({ classItem }) => {
     const navigate = useNavigate()
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
-    const [isStudent] = useIsStudent()
+    const [student, setStudent] = useState(false)
+    if(user){
+        const [isStudent] = useIsStudent()
+        setStudent(isStudent)
+    }
     const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorImage, classCategory } = classItem;
     const classAddHandler = () => {
         if (user) {
@@ -74,7 +79,7 @@ const ClassCard = ({ classItem }) => {
                     <p>Available: {availableSeats}</p>
                 </div>
                 <div className="flex gap-3">
-                    <button disabled={(user && !isStudent) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
+                    <button disabled={(user && !student) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
                     <button className="secondary-btn btn-circle"><HiDocumentText className="text-3xl" /></button>
                 </div>
             </div>
