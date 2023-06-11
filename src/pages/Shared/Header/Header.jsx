@@ -5,7 +5,7 @@ import ActiveLink from "../../../providers/ActiveLink";
 import logo from "../../../assets/TalkTrekLogo.svg"
 import useAuth from "../../../hooks/useAuth";
 
-const Header = () => {
+const Header = ({ dashboard }) => {
     const { user, SignOut } = useAuth()
     const [menuActive, setMenuActive] = useState(false)
     const [scrolled, setScrolled] = useState(false)
@@ -41,12 +41,9 @@ const Header = () => {
         };
     }, []);
     return (
-        <header className={`fixed top-0 w-full z-50 transition-[top] ${scrolled ? 'md:top-0 shadow-xl bg-base-100' : 'md:top-5 bg-transparent'}`}>
-            <div className="container">
+        <header className={`top-0 w-full z-50 transition-[top] shadow bg-base-100 ${dashboard || 'fixed'}`}>
+            <div className={dashboard ? 'px-[2.5%]' : 'container'}>
                 <nav className='flex gap-3 justify-around items-center py-2 '>
-                    {
-                        menuActive ? <button onClick={() => setMenuActive(false)} className='text-3xl mr-3 lg:hidden'><HiX /></button> : <button onClick={() => setMenuActive(true)} className='text-3xl mr-3 lg:hidden'><HiMenuAlt1 /></button>
-                    }
                     <Link to='/' className='mr-auto'>
                         <div className='flex gap-1 items-center'>
                             <img className="w-10" src={logo} alt="" />
@@ -56,25 +53,31 @@ const Header = () => {
                         </div>
                     </Link>
                     <ul className={`
-                        p-5 
-                        absolute 
                         lg:static 
-                        bg-black 
                         lg:bg-transparent 
-                        bg-opacity-50 
-                        top-[5rem] 
-                        min-h-[calc(100vh-9rem)] 
                         lg:min-h-[auto] 
-                        leading-10 
                         lg:leading-3 
-                        rounded-md 
                         lg:flex 
                         justify-center 
                         items-center 
                         gap-5
-                        transition-[left] 
-                        ${menuActive ? 'left-0' : 'left-[-100%]'}
+                        absolute
+                        p-5 
+                        mp-[2.5%]
+                        left-5
+                        right-5
+                        bg-base-100
+                        bg-opacity-90
+                        rounded-md
+                        leading-10 
+                        transition-[top] 
+                        ${menuActive ? 'top-[4rem]' : 'top-[-1000%]'}
                         `}>
+                        <div className="text-right">
+                            {
+                                menuActive && <button onClick={() => setMenuActive(false)} className='text-3xl ml-auto lg:hidden'><HiX /></button>
+                            }
+                        </div>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>HOME</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/classes"}>CLASSES</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/instructor"}>INSTRUCTOR</ActiveLink></li>
@@ -102,6 +105,9 @@ const Header = () => {
                         <svg className="swap-off fill-current w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
 
                     </label>
+                    {
+                        !menuActive && <button onClick={() => setMenuActive(true)} className='text-3xl mr-3 lg:hidden'><HiMenuAlt1 /></button>
+                    }
                 </nav>
             </div>
         </header>

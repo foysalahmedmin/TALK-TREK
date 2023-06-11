@@ -11,10 +11,12 @@ const ClassCard = ({ classItem }) => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
     const [student, setStudent] = useState(false)
-    if(user){
-        const [isStudent] = useIsStudent()
-        setStudent(isStudent)
-    }
+        // const [isStudent] = useIsStudent()
+        // if(isStudent){
+        //     setStudent(isStudent)
+        // }
+        
+
     const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorImage, classCategory } = classItem;
     const classAddHandler = () => {
         if (user) {

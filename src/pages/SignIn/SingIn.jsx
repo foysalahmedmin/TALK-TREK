@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import authImg from "../../assets/AuthImage.svg"
@@ -8,8 +8,10 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 
 const SingIn = () => {
-    const [passShow, setPassShow] = useState(false)
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate()
+    const [passShow, setPassShow] = useState(false)
     const { SingIn } = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
@@ -18,7 +20,7 @@ const SingIn = () => {
             .then(result => {
                 const user = result.user
                 if (user) {
-                    navigate('/', { replace: true })
+                    navigate(from, { replace: true })
                     reset()
                     Swal.fire({
                         position: 'center',

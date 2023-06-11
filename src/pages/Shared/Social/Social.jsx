@@ -1,16 +1,18 @@
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const Social = () => {
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate()
     const { SignInWithGoogle, SignInWithGitHub } = useAuth()
     const googleHandler = () => {
         SignInWithGoogle()
             .then(result => {
-                navigate('/', { replace: true })
+                navigate(from, { replace: true })
                 const userResult = result.user
                 if (userResult) {
                     Swal.fire({
@@ -35,7 +37,7 @@ const Social = () => {
     const githubHandler = () => {
         SignInWithGitHub()
             .then(result => {
-                navigate('/', { replace: true })
+                navigate(from, { replace: true })
                 const userResult = result.user
                 if (userResult) {
                     Swal.fire({
