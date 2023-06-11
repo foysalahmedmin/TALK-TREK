@@ -41,7 +41,7 @@ const Header = () => {
         };
     }, []);
     return (
-        <header className={`fixed top-0 w-full z-50 transition-[top] ${scrolled ? 'md:top-0 shadow-xl' : 'md:top-5 bg-transparent'}`}>
+        <header className={`fixed top-0 w-full z-50 transition-[top] ${scrolled ? 'md:top-0 shadow-xl bg-base-100' : 'md:top-5 bg-transparent'}`}>
             <div className="container">
                 <nav className='flex gap-3 justify-around items-center py-2 '>
                     {
@@ -76,8 +76,8 @@ const Header = () => {
                         ${menuActive ? 'left-0' : 'left-[-100%]'}
                         `}>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>HOME</ActiveLink></li>
-                        <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>CLASSES</ActiveLink></li>
-                        <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>INSTRUCTOR</ActiveLink></li>
+                        <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/classes"}>CLASSES</ActiveLink></li>
+                        <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/instructor"}>INSTRUCTOR</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>DASHBOARD</ActiveLink></li>
                     </ul>
                     <div className=" h-auto flex justify-end items-center border-2 rounded-full p-1">

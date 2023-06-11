@@ -1,3 +1,9 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, HashNavigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -18,8 +24,20 @@ const HomeSlider = () => {
         <section>
             <section className={`bg-[url('/bg.png')] bg-top bg-no-repeat`}>
                 <div className="container">
-                    <Slider {...settings}>
-                        <div>
+                    <Swiper
+                        spaceBetween={30}
+                        hashNavigation={{
+                            watchState: true,
+                        }}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Pagination, Navigation, HashNavigation]}
+                        className="mySwiper"
+                    >
+
+                        <SwiperSlide data-hash="slide1">
                             <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
                                 <div className="items-center justify-center">
                                     <div className="hero">
@@ -39,8 +57,8 @@ const HomeSlider = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </SwiperSlide>
+                        <SwiperSlide data-hash="slide2">
                             <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
                                 <div className="container items-center justify-center">
                                     <div className="hero">
@@ -60,8 +78,8 @@ const HomeSlider = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
+                        </SwiperSlide>
+                        <SwiperSlide data-hash="slide3">
                             <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
                                 <div className="container items-center justify-center">
                                     <div className="hero">
@@ -81,29 +99,28 @@ const HomeSlider = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div>
-                            <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
-                                <div className="container items-center justify-center">
-                                    <div className="hero">
-                                        <div className="hero-content flex-col lg:flex-row-reverse">
-                                            <img src={slied3} className="max-w-xl" />
-                                            <div>
-                                                <h1 className="text-5xl text-primary font-black mb-5">Unleash Your Voice in Every Language!</h1>
-                                                <p className="mb-3">
-                                                    Discover your voice in every language with VoxVerse, the empowering language-learning platform designed to unleash your multilingual potential. From beginner to advanced, our comprehensive courses and engaging exercises foster fluency and build confidence. Join VoxVerse today and embark on a transformative journey of self-expression and linguistic mastery!
-                                                </p>
-                                                <p className="uppercase font-semibold opacity-50 tracking-[5px] mb-5">
-                                                    Tet`s start your journey with
-                                                </p>
-                                                <button className="primary-btn">Get Started</button>
-                                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide data-hash="slide4"><div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
+                            <div className="container items-center justify-center">
+                                <div className="hero">
+                                    <div className="hero-content flex-col lg:flex-row-reverse">
+                                        <img src={slied3} className="max-w-xl" />
+                                        <div>
+                                            <h1 className="text-5xl text-primary font-black mb-5">Unleash Your Voice in Every Language!</h1>
+                                            <p className="mb-3">
+                                                Discover your voice in every language with VoxVerse, the empowering language-learning platform designed to unleash your multilingual potential. From beginner to advanced, our comprehensive courses and engaging exercises foster fluency and build confidence. Join VoxVerse today and embark on a transformative journey of self-expression and linguistic mastery!
+                                            </p>
+                                            <p className="uppercase font-semibold opacity-50 tracking-[5px] mb-5">
+                                                Tet`s start your journey with
+                                            </p>
+                                            <button className="primary-btn">Get Started</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </Slider>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
             </section>
         </section>
