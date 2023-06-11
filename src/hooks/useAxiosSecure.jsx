@@ -3,17 +3,14 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "./useAuth";
 
-
+const axiosSecure = axios.create({
+    baseURL: 'http://localhost:5000'
+})
 
 const useAxiosSecure = () => {
     const navigate = useNavigate()
     const { SignOut } = useAuth()
-    const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000'
-    })
     useEffect(() => {
-
-
         axiosSecure.interceptors.request.use((req) => {
             const token = localStorage.getItem('TalkTrekToken');
             if (token) {
@@ -29,7 +26,7 @@ const useAxiosSecure = () => {
             return Promise.reject(error)
         })
     }, [])
-    return axiosSecure
+    return [axiosSecure]
 };
 
 export default useAxiosSecure;

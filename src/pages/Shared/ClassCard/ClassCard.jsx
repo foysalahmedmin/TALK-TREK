@@ -10,14 +10,9 @@ const ClassCard = ({ classItem }) => {
     const navigate = useNavigate()
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
-    const [student, setStudent] = useState(false)
-        // const [isStudent] = useIsStudent()
-        // if(isStudent){
-        //     setStudent(isStudent)
-        // }
-        
-
+    const [isStudent] = useIsStudent()
     const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorImage, classCategory } = classItem;
+    
     const classAddHandler = () => {
         if (user) {
             axiosSecure.post(`/classSelect/${user.email}`, {
@@ -29,25 +24,25 @@ const ClassCard = ({ classItem }) => {
                 price,
                 classCategory,
             })
-            .then(result => {
-                if(result.data.insertedId) {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Selected',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }else if(result.data.message){
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'warning',
-                        title: `${result.data.message}`,
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                }
-            })
+                .then(result => {
+                    if (result.data.insertedId) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Selected',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    } else if (result.data.message) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'warning',
+                            title: `${result.data.message}`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
         } else {
             Swal.fire({
                 title: 'Want To Sign-In?',
@@ -81,7 +76,7 @@ const ClassCard = ({ classItem }) => {
                     <p>Available: {availableSeats}</p>
                 </div>
                 <div className="flex gap-3">
-                    <button disabled={(user && !student) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
+                    <button disabled={(user && !isStudent) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
                     <button className="secondary-btn btn-circle"><HiDocumentText className="text-3xl" /></button>
                 </div>
             </div>

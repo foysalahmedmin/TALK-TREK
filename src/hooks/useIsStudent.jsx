@@ -1,19 +1,20 @@
 import useAuth from "./useAuth";
-import useAxiosSecure from "./useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "./useAxiosSecure";
 
 const useIsStudent = () => {
-    const {user} = useAuth()
-    const axiosSecure = useAxiosSecure()
+    const {user, loading} = useAuth()
+    const [axiosSecure] = useAxiosSecure()
     const { refetch, isLoading : isStudentLoading, error, data : isStudent } = useQuery({
         queryKey: ['isStudent', user?.email],
+        enabled: !loading && !! user?.email && !! localStorage.getItem('TalkTrekToken'),
         queryFn: async() => {
             const res = await axiosSecure.get(`/user/isStudent/${user?.email}`);
             return res.data.student;
         }
     })
 
-    return [refetch, isStudentLoading, error, isStudent]
+    return [isStudent, isStudentLoading, refetch, error, ]
 };
 
 export default useIsStudent;
