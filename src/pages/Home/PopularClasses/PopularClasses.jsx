@@ -1,7 +1,7 @@
 import ClassSkeletonCard from "../../../components/Loaders/ClassSkeletonCard";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useClasses from "../../../hooks/useClasses";
-import ClassCard from "./ClassCard";
+import ClassCard from "../../Shared/ClassCard/ClassCard";
 
 const PopularClasses = () => {
     const [refetch, classLoading, error, classes] = useClasses('popularClasses')

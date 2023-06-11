@@ -25,7 +25,7 @@ const ClassCard = ({ classItem }) => {
             .then(result => {
                 if(result.data.insertedId) {
                     Swal.fire({
-                        position: 'top-end',
+                        position: 'center',
                         icon: 'success',
                         title: 'Selected',
                         showConfirmButton: false,
@@ -43,13 +43,13 @@ const ClassCard = ({ classItem }) => {
             })
         } else {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Want To Sign-In?',
+                text: "If You want to select class you have to be signed-in!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#8dc63f',
                 cancelButtonColor: '#1975bb',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Yes, Sign-In!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     navigate('/signIn')

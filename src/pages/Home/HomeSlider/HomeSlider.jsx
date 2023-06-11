@@ -17,11 +17,11 @@ const HomeSlider = () => {
     return (
         <section>
             <section className={`bg-[url('/bg.png')] bg-top bg-no-repeat`}>
-                <div>
+                <div className="container">
                     <Slider {...settings}>
                         <div>
                             <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
-                                <div className="container items-center justify-center">
+                                <div className="items-center justify-center">
                                     <div className="hero">
                                         <div className="hero-content flex-col lg:flex-row-reverse">
                                             <img src={slied4} className="max-w-xl" />
@@ -104,10 +104,6 @@ const HomeSlider = () => {
                             </div>
                         </div>
                     </Slider>
-                    <div className="container relative">
-                        <button type="button" data-role="none" className="slick-arrow slick-prev block" style={{ display: 'block' }} data-reactid="159">prev</button>
-                        <button type="button" data-role="none" className="slick-arrow slick-next block" style={{ display: 'block' }} data-reactid="216">next</button>
-                    </div>
                 </div>
             </section>
         </section>
