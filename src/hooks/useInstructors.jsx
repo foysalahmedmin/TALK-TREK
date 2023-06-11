@@ -8,7 +8,7 @@ const useInstructors = (sort) => {
             return res.json();
         } 
     })
-    return [refetch, instructorsLoading, error, instructors]
+    return [instructors, instructorsLoading, refetch,  error ]
 };
 
 export default useInstructors;

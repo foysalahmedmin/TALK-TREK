@@ -9,7 +9,7 @@ const useClasses = (sort) => {
         } 
     })
 
-    return [refetch, classLoading, error, classes]
+    return [classes, classLoading, refetch,  error ]
 };
 
 export default useClasses;

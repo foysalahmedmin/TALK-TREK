@@ -14,7 +14,7 @@ const uesIsInstructor = () => {
         }
     })
 
-    return [refetch, isInstructorLoading, error, isInstructor]
+    return [isInstructor, isInstructorLoading, refetch, error, ]
 };
 
 export default uesIsInstructor;

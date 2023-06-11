@@ -6,7 +6,7 @@ import useInstructors from "../../../hooks/useInstructors";
 import InstructorCard from "../../Shared/InstructorCard/InstructorCard";
 
 const Instructor = () => {
-    const [refetch, instructorsLoading, error, instructors] = useInstructors('popularInstructor')
+    const [instructors, instructorsLoading ] = useInstructors('popularInstructor')
     const [showCount, setShowCount] = useState(6)
     return (
         <>

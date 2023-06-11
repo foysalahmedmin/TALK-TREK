@@ -4,7 +4,7 @@ import useClasses from "../../../hooks/useClasses";
 import ClassCard from "../../Shared/ClassCard/ClassCard";
 
 const PopularClasses = () => {
-    const [refetch, classLoading, error, classes] = useClasses('popularClasses')
+    const [classes, classLoading ] = useClasses('popularClasses')
     return (
         <section className="py-10">
             <div className="container">

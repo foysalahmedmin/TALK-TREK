@@ -6,7 +6,7 @@ import useClasses from "../../../hooks/useClasses";
 import ClassCard from "../../Shared/ClassCard/ClassCard";
 
 const Classes = () => {
-    const [refetch, classLoading, error, classes] = useClasses('popularClasses')
+    const [classes, classLoading ] = useClasses('popularClasses')
     const [showCount, setShowCount] = useState(6)
     return (
         <>

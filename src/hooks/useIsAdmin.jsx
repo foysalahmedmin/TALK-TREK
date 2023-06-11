@@ -14,7 +14,7 @@ const useIsAdmin = () => {
         }
     })
 
-    return [refetch, isAdminLoading, error, isAdmin]
+    return [isAdmin, isAdminLoading, refetch,  error ]
 };
 
 export default useIsAdmin;

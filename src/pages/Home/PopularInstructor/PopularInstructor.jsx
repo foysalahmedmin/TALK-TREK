@@ -4,7 +4,7 @@ import useInstructors from "../../../hooks/useInstructors";
 import InstructorCard from "../../Shared/InstructorCard/InstructorCard";
 
 const PopularInstructor = () => {
-    const [refetch, instructorsLoading, error, instructors] = useInstructors('popularInstructor')
+    const [instructors, instructorsLoading] = useInstructors('popularInstructor')
     return (
         <section className="py-10">
             <div className="container">

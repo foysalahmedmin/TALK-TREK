@@ -1,26 +1,27 @@
 import { HiDocumentText } from "react-icons/hi";
 import useAuth from "../../../hooks/useAuth";
 import useIsStudent from "../../../hooks/useIsStudent";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ClassCard = ({ classItem }) => {
     const navigate = useNavigate()
     const { user } = useAuth()
-    const axiosSecure = useAxiosSecure()
+    const [axiosSecure] = useAxiosSecure()
     const [isStudent] = useIsStudent()
-    const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorImage, classCategory } = classItem;
+    const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorEmail, instructorImage, classCategory } = classItem;
     
     const classAddHandler = () => {
         if (user) {
-            axiosSecure.post(`/classSelect/${user.email}`, {
+            axiosSecure.post(`student/selectClass/${user.email}`, {
                 studentEmail: user.email,
                 classId: _id,
                 className,
                 classImage,
                 instructorId,
+                instructorName,
+                instructorEmail,
                 price,
                 classCategory,
             })
