@@ -23,9 +23,9 @@ const HomeSlider = () => {
     return (
         <section>
             <section className={`bg-[url('/bg.png')] bg-top bg-no-repeat`}>
-                <div className="container">
+                <div>
                     <Swiper
-                        spaceBetween={30}
+                        spaceBetween={0}
                         hashNavigation={{
                             watchState: true,
                         }}
@@ -39,7 +39,7 @@ const HomeSlider = () => {
 
                         <SwiperSlide data-hash="slide1">
                             <div className='bg-base-100 bg-opacity-75 min-h-screen flex justify-center items-center pt-20'>
-                                <div className="items-center justify-center">
+                                <div className="container items-center justify-center">
                                     <div className="hero">
                                         <div className="hero-content flex-col lg:flex-row-reverse">
                                             <img src={slied4} className="max-w-xl" />
