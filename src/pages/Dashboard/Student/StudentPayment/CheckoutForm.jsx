@@ -7,15 +7,15 @@ import useMySelectedClasses from '../../../../hooks/useMySelectedClasses';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const CheckoutForm = ({selectedClass}) => {
+const CheckoutForm = ({ selectedClass }) => {
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate()
-    const {user} = useAuth()
+    const { user } = useAuth()
     const [axiosSecure] = useAxiosSecure()
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState("");
-    const [ , , refetch] = useMySelectedClasses()
+    const [, , refetch] = useMySelectedClasses()
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const CheckoutForm = ({selectedClass}) => {
                     setClientSecret(result.data.clientSecret);
                 })
         }
-    },[selectedClass])
+    }, [selectedClass])
 
 
     const handleSubmit = async (e) => {
@@ -64,11 +64,11 @@ const CheckoutForm = ({selectedClass}) => {
                 },
             },
         );
-        if(confirmError){
+        if (confirmError) {
             console.log(confirmError);
         }
         setProcessing(false)
-        if(paymentIntent.status == 'succeeded'){
+        if (paymentIntent.status == 'succeeded') {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -79,26 +79,33 @@ const CheckoutForm = ({selectedClass}) => {
             const { classId, className, classImage, classCategory, price, startingDate, instructorName, instructorEmail, studentEmail, } = selectedClass;
             navigate('/dashboard/student/paymentHistory')
             axiosSecure.post(`/student/enrolledClass/${user.email}`, {
-                date: new Date(),
-                paymentId: paymentIntent.id,
-                classId,
-                className, 
-                classImage, 
-                classCategory, 
-                price, 
-                startingDate, 
-                instructorName, 
-                instructorEmail, 
-                studentEmail
-            })
-            .then(result => {
-                console.log(result.data)
-                if(result.data.insertedId){
-                    refetch()
+                enrolledClass: {
+                    date: new Date(),
+                    paymentId: paymentIntent.id,
+                    classId,
+                    className,
+                    classImage,
+                    classCategory,
+                    price,
+                    startingDate,
+                    instructorName,
+                    instructorEmail,
+                    studentEmail
+                },
+                paymentInfo: {
+                    date: new Date(),
+                    classId,
+                    ...paymentIntent
                 }
             })
+                .then(result => {
+                    console.log(result.data)
+                    if (result.data.insertedId) {
+                        refetch()
+                    }
+                })
         }
-        
+
 
     }
 

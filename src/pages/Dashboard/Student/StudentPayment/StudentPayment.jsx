@@ -21,15 +21,19 @@ const StudentPayment = () => {
     }, [id])
 
     return (
-        <div>
-            {
-                selectedClass && (
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm selectedClass={selectedClass} />
-                    </Elements>
-                )
-            }
-        </div>
+        <section className="px-[2.5%]">
+            <div className="flex justify-center items-end w-full h-screen">
+                <div className="lg:w-[576px] w-full p-10">
+                    {
+                        selectedClass && (
+                            <Elements stripe={stripePromise}>
+                                <CheckoutForm selectedClass={selectedClass} />
+                            </Elements>
+                        )
+                    }
+                </div>
+            </div>
+        </section>
     );
 };
 
