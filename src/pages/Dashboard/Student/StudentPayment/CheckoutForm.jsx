@@ -95,6 +95,7 @@ const CheckoutForm = ({ selectedClass }) => {
                 paymentInfo: {
                     date: new Date(),
                     classId,
+                    studentEmail,
                     ...paymentIntent
                 }
             })
