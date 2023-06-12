@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import useAuth from '../../../../hooks/useAuth';
 import useMySelectedClasses from '../../../../hooks/useMySelectedClasses';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = ({selectedClass}) => {
     const stripe = useStripe();
@@ -68,6 +69,13 @@ const CheckoutForm = ({selectedClass}) => {
         }
         setProcessing(false)
         if(paymentIntent.status == 'succeeded'){
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Enrolled Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
             const { classId, className, classImage, classCategory, price, startingDate, instructorName, instructorEmail, studentEmail, } = selectedClass;
             navigate('/dashboard/student/paymentHistory')
             axiosSecure.post(`/student/enrolledClass/${user.email}`, {

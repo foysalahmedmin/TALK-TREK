@@ -5,12 +5,14 @@ import uesIsInstructor from '../../../hooks/uesIsInstructor';
 import useIsStudent from '../../../hooks/useIsStudent';
 import DashboardActiveLink from '../../../providers/DashboardActiveLink';
 import { FaHome, FaBorderStyle, FaBoxes } from "react-icons/fa";
+import useMyEnrolledClasses from '../../../hooks/useMyEnrolledClasses';
 
 const SideBar = () => {
     const { user } = useAuth()
     const [isAdmin] = useIsAdmin()
     const [isInstructor] = uesIsInstructor()
     const [isStudent] = useIsStudent()
+    const [enrolledClass] = useMyEnrolledClasses()
 
     return (
         <div className="drawer lg:drawer-open">
