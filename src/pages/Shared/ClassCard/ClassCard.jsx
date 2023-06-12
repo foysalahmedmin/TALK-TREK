@@ -10,7 +10,7 @@ const ClassCard = ({ classItem }) => {
     const { user } = useAuth()
     const [axiosSecure] = useAxiosSecure()
     const [isStudent] = useIsStudent()
-    const { _id, className, classImage, price, seats, availableSeats, instructorId, instructorName, instructorEmail, instructorImage, classCategory } = classItem;
+    const { _id, className, classImage, startingDate, price, seats, availableSeats, instructorName, instructorEmail, instructorImage, classCategory } = classItem;
     
     const classAddHandler = () => {
         if (user) {
@@ -19,9 +19,9 @@ const ClassCard = ({ classItem }) => {
                 classId: _id,
                 className,
                 classImage,
-                instructorId,
                 instructorName,
                 instructorEmail,
+                startingDate,
                 price,
                 classCategory,
             })
