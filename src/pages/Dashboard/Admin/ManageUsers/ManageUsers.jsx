@@ -9,15 +9,14 @@ const ManageUsers = () => {
                 <table className="table ">
                     <thead>
                         <tr>
-                            <th>Class</th>
-                            <th>Instructor</th>
-                            <th>Status</th>
+                            <th>User</th>
+                            <th>UserID</th>
+                            <th>Role</th>
                             <th className="text-center">Action</th>
-                            <th className="text-center">Feedback</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {   
                             allUsers.map(user => <ManageUsersTR key={user._id} user={user} refetch={refetch} />)
                         }
                     </tbody>

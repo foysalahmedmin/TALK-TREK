@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const FeedBack = ({ feedbackClass }) => {
     const [axiosSecure] = useAxiosSecure()
@@ -11,6 +12,15 @@ const FeedBack = ({ feedbackClass }) => {
             axiosSecure.put(`/admin/feedback/${_id}`, { feedback: message })
                 .then(result => {
                     console.log(result.data)
+                    if(result.data.modifiedCount > 0){
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: `Sended successfully.`,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
                 })
         }
     }

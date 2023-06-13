@@ -2,7 +2,7 @@ import usePaymentHistory from "../../../../hooks/usePaymentHistory";
 import StudentPaymentHistoryTR from "./StudentPaymentHistoryTR";
 
 const StudentPaymentHistory = () => {
-    const [paymentHistory] = usePaymentHistory()
+    const [paymentHistory, paymentHistoryLoading] = usePaymentHistory()
     return (
         <div className="w-full">
             <div className="overflow-x-auto">
