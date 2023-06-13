@@ -4,7 +4,8 @@ import useIsAdmin from '../../../hooks/useIsAdmin';
 import uesIsInstructor from '../../../hooks/uesIsInstructor';
 import useIsStudent from '../../../hooks/useIsStudent';
 import DashboardActiveLink from '../../../providers/DashboardActiveLink';
-import { FaHome, FaBorderStyle, FaBoxes, FaTasks } from "react-icons/fa";
+import { FaHome, FaBorderStyle, FaBoxes, FaTasks, FaUsers } from "react-icons/fa";
+import { BiBookAdd } from "react-icons/bi";
 import usePaymentHistory from '../../../hooks/usePaymentHistory';
 
 const SideBar = () => {
@@ -22,7 +23,7 @@ const SideBar = () => {
                 <div className="menu p-4 pt-16 w-60 h-full bg-base-300 text-base-content">
                     {
                         (!!isStudent && !isAdmin && !isInstructor) && (<ul className='flex flex-col gap-1'>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome /> My Home</DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentHome'}><FaHome /> My Home</DashboardActiveLink></li>
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentSelectedClass'}><FaBorderStyle /> My Selected Classes</DashboardActiveLink></li>
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentEnrolledClass'}><FaBoxes />My Enrolled Classes</DashboardActiveLink></li>
                             {
@@ -32,16 +33,16 @@ const SideBar = () => {
                     }
                     {
                         ( !!isInstructor &&  !isStudent && !isAdmin) && (<ul className='flex flex-col gap-1'>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome /> Instructor Home </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorHome'}><FaHome /> Instructor Home </DashboardActiveLink></li>
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorClasses'}><FaBorderStyle /> My Classes </DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorAddClass'}><FaBoxes /> Add Class </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorAddClass'}><BiBookAdd /> Add Class </DashboardActiveLink></li>
                         </ul>)
                     }
                     {
                         ( !!isAdmin &&  !isStudent && !isInstructor) && (<ul className='flex flex-col gap-1'>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome />Admin Home</DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminHome'}><FaHome />Admin Home</DashboardActiveLink></li>
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminManageClasses'}><FaBorderStyle /> Manage Classes </DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminManageUsers'}><FaBoxes /> Manage Users </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminManageUsers'}><FaUsers /> Manage Users </DashboardActiveLink></li>
                         </ul>)
                     }
 

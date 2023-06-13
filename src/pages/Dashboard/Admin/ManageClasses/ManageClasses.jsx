@@ -2,7 +2,6 @@ import { useState } from "react";
 import useAllClasses from "../../../../hooks/useAllClasses";
 import ManageClassesTR from "./ManageClassesTR";
 import FeedBack from "./FeedBack";
-import TrSkeleton from "../../../../components/Loaders/TrSkeleton";
 
 const ManageClasses = () => {
     const [allClasses, allClassesLoading, refetch, error] = useAllClasses()

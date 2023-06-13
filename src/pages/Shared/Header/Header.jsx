@@ -82,7 +82,9 @@ const Header = ({ dashboard }) => {
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/"}>HOME</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/classes"}>CLASSES</ActiveLink></li>
                         <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/instructor"}>INSTRUCTOR</ActiveLink></li>
-                        <li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/dashboard"}>DASHBOARD</ActiveLink></li>
+                        {
+                            user && (<li className='font-semibold hover:text-primary border-y-2 border-transparent shrink-0'><ActiveLink to={"/dashboard"}>DASHBOARD</ActiveLink></li>)
+                        }
                     </ul>
                     <div className=" h-auto flex justify-end items-center border-2 rounded-full p-1">
                         {
