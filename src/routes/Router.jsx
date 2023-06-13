@@ -12,10 +12,14 @@ import StudentSelectedClasses from "../pages/Dashboard/Student/StudentSelectedCl
 import StudentEnrolledClasses from "../pages/Dashboard/Student/StudentEnrolledClasses/StudentEnrolledClasses";
 import StudentPayment from "../pages/Dashboard/Student/StudentPayment/StudentPayment";
 import StudentPaymentHistory from "../pages/Dashboard/Student/StudentPaymentHistory/StudentPaymentHistory";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
+import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
     {
         path: "/",
+        errorElement: <ErrorPage />,
         element: <Main />,
         children: [
             {
@@ -45,7 +49,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
-                path: "student/home",
+                path: "student",
                 element: <StudentHome />
             },
             {
@@ -63,6 +67,17 @@ const router = createBrowserRouter([
             {
                 path: "student/paymentHistory",
                 element: <StudentPaymentHistory />
+            },
+            {
+                path: 'admin'
+            },
+            {
+                path: 'admin/manageClasses',
+                element: <ManageClasses />
+            },
+            {
+                path: 'admin/manageUsers',
+                element: <ManageUsers />
             }
         ]
     }
