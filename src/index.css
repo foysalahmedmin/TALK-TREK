@@ -6,6 +6,9 @@
   .container{
     @apply mx-auto px-[2.5%];
   }
+  .container-full{
+    @apply mx-auto px-[2.5%] w-full;
+  }
   .primary-btn {
     @apply btn text-base-100 tracking-[2px] rounded-full border-2 border-transparent bg-primary hover:bg-transparent hover:border-primary hover:text-primary
   }

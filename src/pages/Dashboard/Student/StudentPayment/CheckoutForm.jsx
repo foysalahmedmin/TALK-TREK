@@ -129,7 +129,7 @@ const CheckoutForm = ({ selectedClass }) => {
                     },
                 }}
             />
-            <button type="submit" disabled={!stripe || !clientSecret || processing}>
+            <button className='w-full primary-btn-sm' type="submit" disabled={!stripe || !clientSecret || processing}>
                 Pay
             </button>
         </form>

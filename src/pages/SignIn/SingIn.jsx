@@ -12,11 +12,11 @@ const SingIn = () => {
     const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate()
     const [passShow, setPassShow] = useState(false)
-    const { SingIn } = useAuth()
+    const { SignIn } = useAuth()
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        SingIn(data?.email, data?.password)
+        SignIn(data?.email, data?.password)
             .then(result => {
                 const user = result.user
                 if (user) {

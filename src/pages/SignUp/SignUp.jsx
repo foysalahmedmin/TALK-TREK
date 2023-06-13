@@ -12,35 +12,38 @@ const SignUp = () => {
     const { register, handleSubmit, reset, setError, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        if (data?.password !== data?.confirmPassword) {
-            setError('confirmPassword', { type: 'recheck', message: 'Check Again Your Password and Confirm Password' });
+        if (data.mainPassword !== data.confirmPassword) {
+            setError("confirmPassword", {
+                type: "validate",
+                message: "Check Again Your Password and Confirm Password"
+            })
         } else {
-            SignUp(data?.email, data?.password)
+            SignUp(data?.email, data?.mainPassword)
                 .then(result => {
                     const createdUser = result.user
-                    navigate('/', { replace: true })
+                    reset()
+                    if (createdUser) {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Signed-Up Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                    axios.post(`http://localhost:5000/user/${createdUser.email}`, {
+                        Name: createdUser.displayName,
+                        Email: createdUser.email,
+                        Image: createdUser.photoURL,
+                        Role: 'student'
+                    })
+                        .then(result => {
+                            navigate('/', { replace: true })
+                            console.log(result)
+                        })
                     UpdateProfile(createdUser, data?.name, data?.photoUrl)
                         .then((updateResult) => {
-                            reset()
-                            const userResult = updateResult.user
-                            if (userResult) {
-                                Swal.fire({
-                                    position: 'center',
-                                    icon: 'success',
-                                    title: 'Signed-Up Successfully',
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            }
-                            axios.post('http://localhost:5000/user', {
-                                Name: userResult.displayName,
-                                Email: userResult.email,
-                                Image: userResult.photoURL,
-                                Role: 'student'
-                            })
-                                .then(result => {
-                                    console.log(result)
-                                })
+                            console.log(updateResult.user)
                         })
                         .catch((error) => {
                             const errorMessage = error.message;
@@ -50,7 +53,7 @@ const SignUp = () => {
         }
 
     }
-    
+
     return (
         <section className={`min-h-screen`}>
             <div className="container">
@@ -86,13 +89,18 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" {...register("password", {
+                                    <input type="password" {...register("mainPassword", {
                                         required: true,
-                                        pattern: /^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*\d).{6,}$/,
-                                        minLength: 6,
-                                        maxLength: 8
-                                    })} placeholder="password" name="password" className="input input-bordered" required />
-                                    {errors.password && <span>{errors.password.message}</span>}
+                                        pattern: {
+                                            value: /^(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*\d).{6,}$/,
+                                            message: 'Password must be spacial at least a spacial character and capital latter'
+                                        },
+                                        minLength: {
+                                            value: 6,
+                                            message: 'Password must be at least 6 characters long'
+                                        }
+                                    })} placeholder="Password" name="mainPassword" className="input input-bordered" required />
+                                    {errors.mainPassword && <span>{errors.mainPassword.message}</span>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

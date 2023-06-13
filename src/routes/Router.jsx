@@ -12,7 +12,6 @@ import StudentSelectedClasses from "../pages/Dashboard/Student/StudentSelectedCl
 import StudentEnrolledClasses from "../pages/Dashboard/Student/StudentEnrolledClasses/StudentEnrolledClasses";
 import StudentPayment from "../pages/Dashboard/Student/StudentPayment/StudentPayment";
 import StudentPaymentHistory from "../pages/Dashboard/Student/StudentPaymentHistory/StudentPaymentHistory";
-import useSingleMySelectedClasses from "../hooks/useSingleMySelectedClasses";
 
 const router = createBrowserRouter([
     {

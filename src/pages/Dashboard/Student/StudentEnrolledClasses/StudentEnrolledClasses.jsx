@@ -6,12 +6,12 @@ const StudentEnrolledClasses = () => {
     return (
         <div className="w-full">
             <div className="overflow-x-auto">
-                <table className="table table-xs table-pin-rows table-pin-col">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Class</th>
                             <th>Instructor</th>
-                            <th>Price</th>
+                            <th>PaymentId</th>
                             <th className="text-center">Action</th>
                         </tr>
                     </thead>

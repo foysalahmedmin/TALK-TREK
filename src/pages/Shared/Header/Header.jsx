@@ -53,6 +53,7 @@ const Header = ({ dashboard }) => {
                         </div>
                     </Link>
                     <ul className={`
+                        z-50
                         lg:static 
                         lg:bg-transparent 
                         lg:min-h-[auto] 

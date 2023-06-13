@@ -51,7 +51,7 @@ const StudentSelectedClassesTR = ({ classItem, refetch }) => {
                     <div>
                         <div className="font-bold">{className}</div>
                         <div className="text-sm opacity-50">{classCategory}</div>
-                        <div className="text-sm opacity-50">{startingDate}</div>
+                        <div className="text-sm opacity-50">Email: {startingDate}</div>
                     </div>
                 </div>
             </td>

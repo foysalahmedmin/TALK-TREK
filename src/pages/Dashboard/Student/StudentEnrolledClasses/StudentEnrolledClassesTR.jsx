@@ -23,13 +23,11 @@ const StudentEnrolledClassesTR = ({classItem}) => {
                 <div className="font-bold">{instructorName}</div>
                 <p>{instructorEmail}</p>
             </td>
-            <th>
-                <button title={paymentId} className="font-bold">${paymentId.slice(0,5)}...</button>
-            </th>
+            <td>
+                <button title={paymentId} className="font-bold">${paymentId}...</button>
+            </td>
             <th >
-                <div className="text-center h-full flex justify-center items-center flex-wrap gap-1">
-                    
-                </div>
+                <button className='primary-btn-sm'>Details</button>
             </th>
         </tr>
     );
