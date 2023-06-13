@@ -21,20 +21,27 @@ const SideBar = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <div className="menu p-4 pt-16 w-60 h-full bg-base-300 text-base-content">
                     {
-                        (!!isStudent && !isAdmin &&!isInstructor) && (<ul className='flex flex-col gap-1'>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/student'}><FaHome /> My Home</DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/student/selectedClass'}><FaBorderStyle /> My Selected Classes</DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/student/enrolledClass'}><FaBoxes />My Enrolled Classes</DashboardActiveLink></li>
+                        (!!isStudent && !isAdmin && !isInstructor) && (<ul className='flex flex-col gap-1'>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome /> My Home</DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentSelectedClass'}><FaBorderStyle /> My Selected Classes</DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentEnrolledClass'}><FaBoxes />My Enrolled Classes</DashboardActiveLink></li>
                             {
                                 isAdmin && (paymentHistory && <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/student/paymentHistory'}><FaTasks />Payment History</DashboardActiveLink></li>)
                             }
                         </ul>)
                     }
                     {
-                        (!isStudent && !!isAdmin &&!isInstructor) && (<ul className='flex flex-col gap-1'>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/admin'}><FaHome />Admin Home</DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/admin/manageClasses'}><FaBorderStyle /> Manage Classes</DashboardActiveLink></li>
-                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/admin/manageUsers'}><FaBoxes />Manage Users</DashboardActiveLink></li>
+                        ( !!isInstructor &&  !isStudent && !isAdmin) && (<ul className='flex flex-col gap-1'>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome /> Instructor Home </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorClasses'}><FaBorderStyle /> My Classes </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/instructorAddClass'}><FaBoxes /> Add Class </DashboardActiveLink></li>
+                        </ul>)
+                    }
+                    {
+                        ( !!isAdmin &&  !isStudent && !isInstructor) && (<ul className='flex flex-col gap-1'>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard'}><FaHome />Admin Home</DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminManageClasses'}><FaBorderStyle /> Manage Classes </DashboardActiveLink></li>
+                            <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/adminManageUsers'}><FaBoxes /> Manage Users </DashboardActiveLink></li>
                         </ul>)
                     }
 

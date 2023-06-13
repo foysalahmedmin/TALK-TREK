@@ -15,6 +15,7 @@ import StudentPaymentHistory from "../pages/Dashboard/Student/StudentPaymentHist
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
 
 const router = createBrowserRouter([
     {
@@ -49,34 +50,35 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
-                path: "student",
+                path: "/dashboard",
                 element: <StudentHome />
             },
             {
-                path: "student/selectedClass",
+                path: "studentSelectedClass",
                 element: <StudentSelectedClasses />
             },
             {
-                path: "student/enrolledClass",
+                path: "studentEnrolledClass",
                 element: <StudentEnrolledClasses />
             },
             {
-                path: "student/payment/:id",
+                path: "studentPayment/:id",
                 element: <StudentPayment />,
             },
             {
-                path: "student/paymentHistory",
+                path: "studentPaymentHistory",
                 element: <StudentPaymentHistory />
             },
             {
-                path: 'admin'
+                path: '/dashboard',
+                element: <AdminHome />
             },
             {
-                path: 'admin/manageClasses',
+                path: 'adminManageClasses',
                 element: <ManageClasses />
             },
             {
-                path: 'admin/manageUsers',
+                path: 'adminManageUsers',
                 element: <ManageUsers />
             }
         ]
