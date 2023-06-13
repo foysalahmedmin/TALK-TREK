@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
-const ManageClassesTR = ({classItem, setFeedbackID, feedbackHandler}) => {
-    const { _id, className, classImage, classCategory, price, startingDate, instructorName, instructorEmail, status } = classItem;
+const ManageClassesTR = ({classItem, feedbackHandler, refetch}) => {
+    const [axiosSecure] = useAxiosSecure()
+    const { _id, className, classImage, classCategory, price, instructorName, instructorEmail, status } = classItem;
+    const statusHandler = (updateStatus) =>{
+        if (updateStatus) {
+            axiosSecure.put(`/admin/updateStatus/${_id}`, { feedback: updateStatus })
+                .then(result => {
+                    console.log(result.data)
+                    refetch()
+                })
+        }
+    }
     return (
         <tr>
             <td>
@@ -28,8 +39,8 @@ const ManageClassesTR = ({classItem, setFeedbackID, feedbackHandler}) => {
             </th>
             <th >
                 <div className="text-center h-full flex justify-center items-center flex-wrap gap-1">
-                    <button disabled={!status == 'approved'} className="secondary-btn-sm">Approved</button>
-                    <button disabled={status == 'approved'} className="secondary-btn-sm">Denied</button>
+                    <button onClick={()=> statusHandler('approved')} disabled={!status == 'approved'} className="secondary-btn-sm">Approved</button>
+                    <button onClick={()=> statusHandler('denied')} disabled={status == 'approved'} className="secondary-btn-sm">Denied</button>
                 </div>
             </th>
             <th className='text-center'>
