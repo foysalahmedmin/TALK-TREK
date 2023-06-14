@@ -1,6 +1,4 @@
-import { BiImageAdd } from "react-icons/bi";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
-import useAuth from "../../../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";

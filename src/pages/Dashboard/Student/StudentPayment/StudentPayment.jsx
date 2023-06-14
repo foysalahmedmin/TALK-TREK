@@ -4,12 +4,10 @@ import CheckoutForm from "./CheckoutForm";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useParams } from "react-router-dom";
-import useAuth from "../../../../hooks/useAuth";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PK);
 const StudentPayment = () => {
     const [axiosSecure] = useAxiosSecure()
-    const { user } = useAuth()
     const [selectedClass, setSelectedClass] = useState({})
     const { id } = useParams()
     useEffect(() => {
@@ -21,7 +19,7 @@ const StudentPayment = () => {
 
     return (
         <section className="px-[2.5%]">
-            <div className="flex justify-center items-end w-full">
+            <div className="flex justify-center items-center h-full w-full">
                 <div className="lg:w-[576px] w-full p-10">
                     {
                         selectedClass && (
