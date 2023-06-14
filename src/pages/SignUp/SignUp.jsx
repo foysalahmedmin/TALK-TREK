@@ -22,7 +22,7 @@ const SignUp = () => {
                 .then(result => {
                     const createdUser = result.user
                     if (createdUser) {
-                        axios.post(`http://localhost:5000/user/${data.email}`, {
+                        axios.post(`https://talk-trek-server.vercel.app/user/${data.email}`, {
                             Name: data.name,
                             Email: data.email,
                             Image: data.photoUrl,

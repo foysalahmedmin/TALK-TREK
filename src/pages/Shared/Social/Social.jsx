@@ -23,7 +23,7 @@ const Social = () => {
                         timer: 1500
                     })
                 }
-                axios.post(`http://localhost:5000/user/${userResult.email}`, {
+                axios.post(`https://talk-trek-server.vercel.app/user/${userResult.email}`, {
                     Name: userResult.displayName,
                     Email: userResult.email,
                     Image: userResult.photoURL,
@@ -48,7 +48,7 @@ const Social = () => {
                         timer: 1500
                     })
                 }
-                axios.post(`http://localhost:5000/user/${userResult.email}`, {
+                axios.post(`https://talk-trek-server.vercel.app/user/${userResult.email}`, {
                     Name: userResult.displayName,
                     Email: userResult.email,
                     Image: userResult.photoURL,

@@ -4,7 +4,7 @@ const useInstructors = (sort) => {
     const { refetch, isLoading : instructorsLoading, error, data : instructors = [] } = useQuery({
         queryKey: ['instructors'],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/instructors?sort=${sort}`);
+            const res = await fetch(`https://talk-trek-server.vercel.app/instructors?sort=${sort}`);
             return res.json();
         } 
     })
