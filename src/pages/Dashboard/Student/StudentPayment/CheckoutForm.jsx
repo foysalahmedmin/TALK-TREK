@@ -93,7 +93,6 @@ const CheckoutForm = ({ selectedClass }) => {
                     studentEmail
                 },
                 paymentInfo: {
-                    date: new Date(),
                     classId,
                     studentEmail,
                     ...paymentIntent

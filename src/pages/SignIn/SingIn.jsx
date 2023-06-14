@@ -41,8 +41,8 @@ const SingIn = () => {
     }
     return (
         <section className={`min-h-screen`}>
-            <div className="container">
-                <div className="hero pt-20 py-10 min-h-screen items-center">
+            <div className="container pt-16">
+                <div className="hero py-10 min-h-screen items-center">
                     <div className="hero-content flex-col lg:flex-row shadow-2xl">
                         <div className="text-center lg:text-left">
                             <img src={authImg} alt="" />

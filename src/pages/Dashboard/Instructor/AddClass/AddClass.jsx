@@ -2,9 +2,12 @@ import { useForm } from "react-hook-form";
 import { BiImageAdd } from "react-icons/bi";
 import useAuth from "../../../../hooks/useAuth";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddClass = () => {
     const [axiosSecure] = useAxiosSecure()
+    const navigate = useNavigate()
     const imageHostKey = import.meta.env.VITE_IMG_HOST_KEY
     const imgHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
     const { user } = useAuth()
@@ -41,7 +44,16 @@ const AddClass = () => {
                     }
                     axiosSecure.post(`/instructor/instructorAddClass/${user.email}`, postAbleClass)
                     .then(result => {
-                        console.log(result.data)
+                        if(result.data.insertedId){
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Class Added Successfully',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                            navigate('/dashboard/instructorClasses', { replace: true })
+                        }
                     })
 
                 }

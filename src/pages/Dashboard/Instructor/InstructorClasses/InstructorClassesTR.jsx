@@ -29,8 +29,8 @@ const InstructorClassesTR = ({ classItem, showFeedback }) => {
             <th>
                 <button className="font-bold">{bookedSeats}</button>
             </th>
-            <th>
-                <button className="font-bold text-center">{status}</button>
+            <th className='text-center'>
+                {status}
             </th>
             <th >
                 <div className="text-center h-full flex justify-center items-center flex-wrap gap-1">

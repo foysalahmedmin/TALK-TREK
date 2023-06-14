@@ -19,6 +19,7 @@ import AdminHome from "../pages/Dashboard/Admin/AdminHome/AdminHome";
 import InstructorHome from "../pages/Dashboard/Instructor/InstructorHome/InstructorHome";
 import InstructorClasses from "../pages/Dashboard/Instructor/InstructorClasses/InstructorClasses";
 import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
+import InstructorClassUpdate from "../pages/Dashboard/Instructor/InstructorClassUpdate/InstructorClassUpdate";
 
 const router = createBrowserRouter([
     {
@@ -86,7 +87,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'instructorClassUpdate/:id',
-                element: <AddClass />
+                element: <InstructorClassUpdate />
             },
             {
                 path: 'adminHome',

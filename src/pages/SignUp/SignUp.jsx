@@ -21,8 +21,18 @@ const SignUp = () => {
             SignUp(data?.email, data?.mainPassword)
                 .then(result => {
                     const createdUser = result.user
-                    reset()
                     if (createdUser) {
+                        axios.post(`http://localhost:5000/user/${data.email}`, {
+                            Name: data.name,
+                            Email: data.email,
+                            Image: data.photoUrl,
+                            Role: 'student'
+                        })
+                            .then(result => {
+                                console.log(result)
+                            })
+
+                        navigate('/', { replace: true })
                         Swal.fire({
                             position: 'center',
                             icon: 'success',
@@ -30,33 +40,26 @@ const SignUp = () => {
                             showConfirmButton: false,
                             timer: 1500
                         })
+                        UpdateProfile(createdUser, data?.name, data?.photoUrl)
+                            .then(updateResult => {
+                                reset()
+                            })
+                            .catch((error) => {
+                                const errorMessage = error.message;
+                                console.log(errorMessage)
+                            });
                     }
-                    axios.post(`http://localhost:5000/user/${createdUser.email}`, {
-                        Name: createdUser.displayName,
-                        Email: createdUser.email,
-                        Image: createdUser.photoURL,
-                        Role: 'student'
-                    })
-                        .then(result => {
-                            navigate('/', { replace: true })
-                            console.log(result)
-                        })
-                    UpdateProfile(createdUser, data?.name, data?.photoUrl)
-                        .then((updateResult) => {
-                            console.log(updateResult.user)
-                        })
-                        .catch((error) => {
-                            const errorMessage = error.message;
-                            console.log(errorMessage)
-                        });
+
                 })
+
+
         }
 
     }
 
     return (
         <section className={`min-h-screen`}>
-            <div className="container">
+            <div className="container pt-16">
                 <div className="hero py-10 min-h-screen items-center">
                     <div className="hero-content flex-col lg:flex-row-reverse shadow-2xl">
                         <div className="text-center lg:text-left">
