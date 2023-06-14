@@ -85,6 +85,10 @@ const router = createBrowserRouter([
                 element: <AddClass />
             },
             {
+                path: 'instructorClassUpdate/:id',
+                element: <AddClass />
+            },
+            {
                 path: 'adminHome',
                 element: <AdminHome />
             },

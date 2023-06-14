@@ -15,7 +15,7 @@ const StudentEnrolledClassesTR = ({classItem}) => {
                         <div className="font-bold">{className}</div>
                         <div className="text-sm opacity-50">{classCategory}</div>
                         <div className="text-sm opacity-50">{startingDate}</div>
-                        <div className="text-sm opacity-50">{price}</div>
+                        <div className="text-sm opacity-50">Price: {price}</div>
                     </div>
                 </div>
             </td>

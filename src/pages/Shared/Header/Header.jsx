@@ -95,7 +95,7 @@ const Header = ({ dashboard }) => {
                         {
                             user ?
                                 user.photoURL ?
-                                    <img src={user?.photoURL} title={user?.displayName} className='w-7 h-7 rounded-full' alt="" />
+                                    <img src={user?.photoURL} title={user?.displayName} className='w-7 h-7 rounded-full object-cover' alt="" />
                                     : <h3 title={user?.displayName}><HiOutlineUserCircle className='text-3xl' /></h3>
                                 : ''
                         }

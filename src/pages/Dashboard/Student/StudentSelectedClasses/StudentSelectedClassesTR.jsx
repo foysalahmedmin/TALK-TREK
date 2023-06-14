@@ -51,7 +51,7 @@ const StudentSelectedClassesTR = ({ classItem, refetch }) => {
                     <div>
                         <div className="font-bold">{className}</div>
                         <div className="text-sm opacity-50">{classCategory}</div>
-                        <div className="text-sm opacity-50">Email: {startingDate}</div>
+                        <div className="text-sm opacity-50">Starting Date: {startingDate}</div>
                     </div>
                 </div>
             </td>
@@ -64,7 +64,7 @@ const StudentSelectedClassesTR = ({ classItem, refetch }) => {
             </th>
             <th >
                 <div className="text-center h-full flex justify-center items-center flex-wrap gap-1">
-                    <Link to={`/dashboard/student/payment/${_id}`}><button className="primary-btn-sm"><FaCreditCard /></button></Link>
+                    <Link to={`/dashboard/studentPayment/${_id}`}><button className="primary-btn-sm"><FaCreditCard /></button></Link>
                     <button onClick={deleteHandler} className="secondary-btn-sm"><RiDeleteBack2Fill /></button>
                 </div>
             </th>

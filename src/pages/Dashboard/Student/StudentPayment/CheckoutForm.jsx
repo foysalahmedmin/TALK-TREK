@@ -77,7 +77,7 @@ const CheckoutForm = ({ selectedClass }) => {
                 timer: 1500
             })
             const { classId, className, classImage, classCategory, price, startingDate, instructorName, instructorEmail, studentEmail, } = selectedClass;
-            navigate('/dashboard/student/paymentHistory')
+            navigate('/dashboard/studentPaymentHistory')
             axiosSecure.post(`/student/enrolledClass/${user.email}`, {
                 enrolledClass: {
                     date: new Date(),
