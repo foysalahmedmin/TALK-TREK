@@ -14,7 +14,6 @@ const SideBar = () => {
     const [isInstructor] = uesIsInstructor()
     const [isStudent] = useIsStudent()
     const [paymentHistory] = usePaymentHistory()
-
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -27,7 +26,7 @@ const SideBar = () => {
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentSelectedClass'}><FaBorderStyle /> My Selected Classes</DashboardActiveLink></li>
                             <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentEnrolledClass'}><FaBoxes />My Enrolled Classes</DashboardActiveLink></li>
                             {
-                                isAdmin && (paymentHistory && <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/student/paymentHistory'}><FaTasks />Payment History</DashboardActiveLink></li>)
+                                paymentHistory && (paymentHistory && <li className=' bg-opacity-25 rounded-md font-bold text-base-content'><DashboardActiveLink to={'/dashboard/studentPaymentHistory'}><FaTasks />Payment History</DashboardActiveLink></li>)
                             }
                         </ul>)
                     }

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className='bg-base-300 py-5'>
+        <footer className='bg-base-300 py-5 border-t-4 border-base-100'>
             <div className="container">
-                <div className='grid grid-cols-4 py-3 justify-between gap-5'>
+                <div className='grid lg:grid-cols-4 py-3 justify-between gap-5'>
                     <div className="flex h-full items-center">
                     <Link to='/' className='mr-auto'>
                         <div className='flex gap-1 items-center'>

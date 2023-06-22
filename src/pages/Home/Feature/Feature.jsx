@@ -1,13 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-creative";
-import { EffectCreative } from "swiper";
+import { EffectCreative, A11y } from "swiper";
 import img1 from '../../../assets/featur1.jpg'
 import img2 from '../../../assets/featur2.jpg'
 import img3 from '../../../assets/featur3.jpg'
 import img4 from '../../../assets/featur4.jpg'
 import img5 from '../../../assets/featur5.jpg'
 import img6 from '../../../assets/featur6.jpg'
+import SwiperButtons from "../../../components/SwiperButtons/SwiperButtons";
 
 const Feature = () => {
     return (
@@ -23,7 +24,7 @@ const Feature = () => {
                             It provides learners with practical language skills, cultural insights, and engaging activities to enhance their language proficiency.
                         </p>
                     </div>
-                    <div>
+                    <div className="relative">
                         <Swiper
                             grabCursor={true}
                             effect={"creative"}
@@ -36,16 +37,19 @@ const Feature = () => {
                                     translate: ["100%", 0, 0],
                                 },
                             }}
-                            modules={[EffectCreative]}
+                            modules={[EffectCreative, A11y]}
                             className="mySwiper"
                         >
-                            
+
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img1} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img2} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img3} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img4} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img5} alt="" /></SwiperSlide>
                             <SwiperSlide><img className="h-[500px] w-full object-cover" src={img6} alt="" /></SwiperSlide>
+                            <div className="absolute bottom-0 z-10">
+                                <SwiperButtons />
+                            </div>
                         </Swiper>
                     </div>
                 </div>

@@ -11,6 +11,7 @@ const StudentPaymentHistory = () => {
                         <tr>
                             <th></th>
                             <th>ID</th>
+                            <th>Class</th>
                             <th>Email</th>
                             <th>Date</th>
                             <th>Status</th>
@@ -18,7 +19,7 @@ const StudentPaymentHistory = () => {
                     </thead>
                     <tbody>
                         {
-                            paymentHistory.map((paymentItem, i) => <StudentPaymentHistoryTR key={paymentItem._id} paymentItem={paymentItem} i={i} />)
+                            paymentHistory.map((paymentItem, i) => <StudentPaymentHistoryTR key={paymentItem._id} paymentItem={paymentItem} i={i + 1} />)
                         }
                     </tbody>
 

@@ -7,16 +7,15 @@ import { FaDoorOpen } from "react-icons/fa";
 const Dashboard = () => {
     return (
         <>
-            <main className="flex max-w-[1700px] mx-auto justify-center lg:h-screen overflow-y-hidden flex-row-reverse relative w-full">
-                <section className="flex-1 relative container 2xl:container-full lg:w-full">
+            <main className="flex w-screen mx-auto justify-center lg:h-screen overflow-y-hidden flex-row-reverse relative">
+                <section className="flex-1 relative w-screen lg:w-full">
                     <Header dashboard={true} />
                     <div className="">
                         <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden"><FaDoorOpen /> Side-Bar</label>
                     </div>
-                    <div className="py-10 lg:h-[calc(100vh-18rem)] lg:overflow-y-scroll">
+                    <div className="py-10 lg:h-[calc(100vh-5rem)] lg:overflow-y-scroll">
                         <Outlet />
                     </div>
-                    <Footer dashboard={true} />
                 </section>
                 <section>
                     <SideBar />

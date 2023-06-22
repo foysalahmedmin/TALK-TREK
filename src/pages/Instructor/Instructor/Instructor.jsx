@@ -6,7 +6,7 @@ import useInstructors from "../../../hooks/useInstructors";
 import InstructorCard from "../../Shared/InstructorCard/InstructorCard";
 
 const Instructor = () => {
-    const [instructors, instructorsLoading ] = useInstructors('popularInstructor')
+    const [instructors, instructorsLoading, refetch,  error ] = useInstructors('popularInstructor')
     const [showCount, setShowCount] = useState(6)
     return (
         <>
@@ -22,7 +22,7 @@ const Instructor = () => {
                 <div className="grid md:grid-cols-3 gap-5">
                     {
                         instructorsLoading ? <InstructorSkeletonCard cardCount={6} /> :
-                        instructors.slice(0, 6).map(instructorItem => <InstructorCard key={instructorItem._id} instructorItem={instructorItem} />)
+                        instructors.slice(0, showCount).map(instructorItem => <InstructorCard key={instructorItem._id} instructorItem={instructorItem} refetch={refetch} />)
                     }
                 </div>
                 <div className="text-center mt-5">
