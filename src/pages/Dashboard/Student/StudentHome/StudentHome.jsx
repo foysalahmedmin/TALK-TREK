@@ -2,7 +2,6 @@
 const StudentHome = () => {
     return (
         <div>
-            hello
         </div>
     );
 };

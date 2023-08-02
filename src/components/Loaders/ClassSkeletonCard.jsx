@@ -13,9 +13,8 @@ const ClassSkeletonCard = ({cardCount}) => {
                         <div className=''>
                             <Skeleton count={3} width={250} />
                         </div>
-                        <div className='flex gap-3'>
+                        <div className='flex'>
                             <div className='flex-1 rounded-full overflow-hidden'><Skeleton height={40} /></div>
-                            <div className='w-10 h-10'><Skeleton circle width={40} height={40} /></div>
                         </div>
                     </div>
                 </div>)

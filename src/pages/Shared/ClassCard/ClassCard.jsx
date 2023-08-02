@@ -76,9 +76,8 @@ const ClassCard = ({ classItem }) => {
                     <p>Seats: {seats}</p>
                     <p>Available: {availableSeats}</p>
                 </div>
-                <div className="flex gap-3">
-                    <button disabled={(user && !isStudent) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn flex-1">Select Class</button>
-                    <button className="secondary-btn btn-circle"><HiDocumentText className="text-3xl" /></button>
+                <div>
+                    <button disabled={(user && !isStudent) || (availableSeats < 1)} onClick={() => classAddHandler()} className="primary-btn w-full">Select Class</button>
                 </div>
             </div>
         </div>

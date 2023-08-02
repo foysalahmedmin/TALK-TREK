@@ -2,6 +2,9 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import app from '../firebase/firebase.config';
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import useIsAdmin from "../hooks/useIsAdmin";
+import uesIsInstructor from "../hooks/uesIsInstructor";
+import useIsStudent from "../hooks/useIsStudent";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)

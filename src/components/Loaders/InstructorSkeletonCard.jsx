@@ -14,6 +14,9 @@ const InstructorSkeletonCard = ({ cardCount }) => {
                             <Skeleton width={150} />
                             <Skeleton width={200} />
                         </div>
+                        <div className='flex'>
+                            <div className='flex-1 rounded-full overflow-hidden'><Skeleton height={40} /></div>
+                        </div>
                     </div>
                 </div>)
             }
