@@ -6,9 +6,9 @@ const SectionTitle = ({ heading, subheading }) => {
         <Fade>
             <div className='max-w-xl mx-auto text-center mb-5'>
 
-                <h1 className='mb-2 text-3xl font-bold uppercase text-primary'>
-                    --- {heading} ---
-                </h1>
+                <div className='mb-2 text-3xl font-bold uppercase text-primary flex items-center justify-center gap-1'>
+                    <span className='flex-shrink-0'>--</span> <h1>{heading}</h1> <span className='flex-shrink-0'>--</span>
+                </div>
                 <p className='opacity-50'>
                     {subheading}
                 </p>

@@ -16,7 +16,7 @@ const Feature = () => {
             <div className="container">
                 <div className='lg:grid lg:grid-cols-2 gap-5'>
                     <div className="w-full mb-5">
-                        <h1 className='text-5xl font-bold mb-5 text-primary'>Why Talk-Trek is more interactive language learning platform!</h1>
+                        <h1 className='text-3xl md:text-5xl font-bold mb-5 text-primary'>Why Talk-Trek is more interactive language learning platform!</h1>
                         <p>
                             Talk-Trek is a highly interactive language learning platform that offers authentic conversations, virtual immersion, personalized learning, gamification, and a supportive community, making it an exceptional choice for interactive language learning.
                         </p><br />
