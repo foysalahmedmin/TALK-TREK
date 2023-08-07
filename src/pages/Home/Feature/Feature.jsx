@@ -13,7 +13,7 @@ import SwiperButtons from "../../../components/SwiperButtons/SwiperButtons";
 const Feature = () => {
     return (
         <section className='py-10 bg-base-300'>
-            <div className="container">
+            <div className="container overflow-hidden">
                 <div data-aos="fade-up">
                     <div className='lg:grid lg:grid-cols-2 gap-5'>
                         <div className="w-full mb-5" data-aos="fade-right">

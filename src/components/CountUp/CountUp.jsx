@@ -6,7 +6,7 @@ const CountUp = ({ start, end }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setNum((prevNum) => {
-                const nextNum = prevNum + Math.round((end / 5))
+                const nextNum = prevNum + Math.round((end / 10))
                 if (nextNum >= end){
                     clearInterval(interval);
                     return end ;
