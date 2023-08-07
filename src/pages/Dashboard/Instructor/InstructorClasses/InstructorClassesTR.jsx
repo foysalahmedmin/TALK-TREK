@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const InstructorClassesTR = ({ classItem, showFeedback }) => {
     const { _id, className, classImage, classCategory, price, bookedSeats, seats, status, instructorName, instructorEmail, feedback } = classItem;
     return (
-        <tr>
+        <tr data-aos="zoom-in">
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">

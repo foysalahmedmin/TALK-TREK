@@ -62,10 +62,10 @@ const SignUp = () => {
             <div className="container pt-16">
                 <div className="hero py-10 min-h-screen items-center">
                     <div className="hero-content flex-col lg:flex-row-reverse shadow-2xl">
-                        <div className="text-center lg:text-left">
+                        <div className="text-center lg:text-left" data-aos="fade-left">
                             <img src={authImg} alt="" />
                         </div>
-                        <div className="card flex-shrink-0 w-full max-w-sm">
+                        <div className="card flex-shrink-0 w-full max-w-sm" data-aos="fade-right">
                             <h1 className="text-center font-bold text-2xl">
                                 SIGN-UP
                             </h1>

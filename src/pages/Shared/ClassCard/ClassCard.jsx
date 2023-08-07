@@ -61,7 +61,7 @@ const ClassCard = ({ classItem }) => {
         }
     }
     return (
-        <div className="rounded-md overflow-hidden shadow-xl">
+        <div className="rounded-md overflow-hidden shadow-xl" data-aos="fade-up">
             <div className="relative h-60">
                 <img className="w-full h-full object-cover" src={classImage} alt="" />
                 <div className="absolute top-0 h-full z-10 w-full bg-gradient-to-l from-black bg-opacity-50"></div>

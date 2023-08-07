@@ -2,8 +2,14 @@ import { Outlet } from "react-router-dom";
 import Header from "../pages/Shared/Header/Header";
 import SideBar from "../pages/Dashboard/Sidebar/SideBar";
 import { FaDoorOpen } from "react-icons/fa";
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Dashboard = () => {
+    useEffect(()=>{
+        AOS.init()
+    }, [])
     return (
         <>
             <main className="flex w-screen mx-auto justify-center lg:h-screen overflow-y-hidden flex-row-reverse relative">

@@ -3,7 +3,7 @@ import React from 'react';
 const StudentEnrolledClassesTR = ({classItem}) => {
     const { paymentId,  className, classImage, classCategory, price, startingDate, instructorName, instructorEmail } = classItem;
     return (
-        <tr>
+        <tr data-aos="zoom-in">
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">

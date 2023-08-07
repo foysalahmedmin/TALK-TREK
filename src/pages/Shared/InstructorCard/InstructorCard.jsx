@@ -76,7 +76,7 @@ const InstructorCard = ({ instructorItem, refetch }) => {
         }
     }
     return (
-        <div className="rounded-mb overflow-hidden">
+        <div className="rounded-mb overflow-hidden" data-aos="fade-up">
             <div className="h-80">
                 <img className="h-full w-full object-cover" src={Image} alt="" />
             </div>

@@ -44,10 +44,10 @@ const SingIn = () => {
             <div className="container pt-16">
                 <div className="hero py-10 min-h-screen items-center">
                     <div className="hero-content flex-col lg:flex-row shadow-2xl">
-                        <div className="text-center lg:text-left">
+                        <div className="text-center lg:text-left" data-aos="fade-right">
                             <img src={authImg} alt="" />
                         </div>
-                        <div className="card flex-shrink-0 w-full max-w-sm">
+                        <div className="card flex-shrink-0 w-full max-w-sm" data-aos="fade-left">
                             <h1 className="text-center font-bold text-2xl">
                                 SIGN-IN
                             </h1>

@@ -40,7 +40,7 @@ const StudentSelectedClassesTR = ({ classItem, refetch }) => {
 
     }
     return (
-        <tr>
+        <tr data-aos="zoom-in">
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">

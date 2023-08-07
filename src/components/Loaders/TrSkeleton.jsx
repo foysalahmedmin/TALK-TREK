@@ -6,7 +6,7 @@ const TrSkeleton = ({trCount}) => {
     return (
         <>
             {
-                count.map((x, index) => <Skeleton key={index} height={50} />)
+                count.map((x, index) => <tr key={index}><Skeleton height={50} /></tr>)
             }
         </>
     );

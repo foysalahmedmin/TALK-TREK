@@ -3,7 +3,7 @@ import React from 'react';
 const StudentPaymentHistoryTR = ({ paymentItem, i }) => {
     const { date, classId, studentEmail, id, amount, status } = paymentItem;
     return (
-        <tr>
+        <tr data-aos="zoom-in">
             <th>{i}</th>
             <td>{id}</td>
             <td>
