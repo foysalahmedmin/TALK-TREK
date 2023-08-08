@@ -2,7 +2,7 @@ import { HiDocumentText } from "react-icons/hi";
 import useAuth from "../../../hooks/useAuth";
 import useIsStudent from "../../../hooks/useIsStudent";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ClassCard = ({ classItem }) => {
@@ -70,7 +70,7 @@ const ClassCard = ({ classItem }) => {
             <img className="w-20 h-20 z-20 object-cover shadow-xl relative ml-auto mr-3 -mt-10 rounded-full" src={instructorImage} alt="" />
             <div className={`relative bg-base-300 -mt-10 p-3 ${availableSeats < 1 && 'bg-red-100'}`}>
                 <p className="text-xs opacity-50">{classCategory}</p>
-                <h1 className="text-primary font-semibold text-3xl">{className}</h1>
+                <Link to={`/classDetails/${_id}`}><h1 className="text-primary font-semibold text-3xl hover:tracking-[1px] transition-all cursor-pointer">{className}</h1></Link>
                 <p className="uppercase mb-1">With {instructorName}</p>
                 <div className="flex gap-5 mb-3">
                     <p>Seats: {seats}</p>

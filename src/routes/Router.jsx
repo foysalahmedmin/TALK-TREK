@@ -20,6 +20,7 @@ import InstructorHome from "../pages/Dashboard/Instructor/InstructorHome/Instruc
 import InstructorClasses from "../pages/Dashboard/Instructor/InstructorClasses/InstructorClasses";
 import AddClass from "../pages/Dashboard/Instructor/AddClass/AddClass";
 import InstructorClassUpdate from "../pages/Dashboard/Instructor/InstructorClassUpdate/InstructorClassUpdate";
+import ClassDetails from "../pages/ClassDetails/ClassDetails/ClassDetails";
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: "/instructor",
                 element: <Instructor />
+            },
+            {
+                path: "/classDetails/:id",
+                element: <ClassDetails />
             }
         ]
     },
