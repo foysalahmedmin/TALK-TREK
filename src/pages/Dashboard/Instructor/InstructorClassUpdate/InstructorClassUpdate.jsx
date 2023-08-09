@@ -11,7 +11,6 @@ const InstructorClassUpdate = () => {
     const [axiosSecure] = useAxiosSecure()
     const { className, price, availableSeats, bookedSeats, classDuration, startingDate, classDetails } = theClass;
     const [durationDay, setDurationDay] = useState()
-    console.log(theClass)
     useEffect(() => {
         axiosSecure.get(`/instructor/instructorSingleClasses/${id}`)
             .then(result => {
@@ -26,7 +25,6 @@ const InstructorClassUpdate = () => {
 
     const { register, handleSubmit, reset, setError, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         const { price, availableSeats, classDuration, startingDate, classDetails } = data;
         const updatedClass = {
             seats: +availableSeats + bookedSeats,
@@ -36,7 +34,6 @@ const InstructorClassUpdate = () => {
             startingDate,
             price: +price,
         }
-        console.log(updatedClass)
         axiosSecure.put(`/instructor/instructorUpdateClass/${id}`, updatedClass)
             .then(result => {
                 if(result.data.modifiedCount > 0){

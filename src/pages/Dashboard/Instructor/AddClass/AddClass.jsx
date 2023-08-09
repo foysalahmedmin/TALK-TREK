@@ -13,7 +13,6 @@ const AddClass = () => {
     const { user } = useAuth()
     const { register, handleSubmit, reset, setError, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         const formData = new FormData()
         formData.append('image', data.image[0])
         fetch(imgHostingUrl, {

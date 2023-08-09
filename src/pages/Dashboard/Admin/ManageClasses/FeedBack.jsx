@@ -11,7 +11,6 @@ const FeedBack = ({ feedbackClass }) => {
         if (message) {
             axiosSecure.put(`/admin/feedback/${_id}`, { feedback: message })
                 .then(result => {
-                    console.log(result.data)
                     if(result.data.modifiedCount > 0){
                         Swal.fire({
                             position: 'center',

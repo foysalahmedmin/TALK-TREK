@@ -35,9 +35,7 @@ const InstructorClassesTR = ({ classItem, showFeedback }) => {
             <th >
                 <div className="text-center h-full flex justify-center items-center flex-wrap gap-1">
                     <Link to={`/dashboard/instructorClassUpdate/${_id}`}><button className="primary-btn-sm">Update</button></Link>
-                    {
-                        status === 'denied' && (<button onClick={() => showFeedback({feedback, className, _id})}  className="secondary-btn-sm">Admin Feedback</button>)
-                    }
+                    <button onClick={() => showFeedback({ feedback, className, _id })} className="secondary-btn-sm">Admin Feedback</button>
                 </div>
             </th>
         </tr>

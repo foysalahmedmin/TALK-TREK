@@ -46,8 +46,8 @@ const ClassCard = ({ classItem }) => {
                 })
         } else {
             Swal.fire({
-                title: 'Want To Sign-In?',
-                text: "If You want to select class you have to be signed-in!",
+                title: 'WANT TO SIGN-IN?',
+                text: "If you want to select the class you have to sign-in!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#8dc63f',

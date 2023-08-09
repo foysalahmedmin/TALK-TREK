@@ -5,11 +5,10 @@ import { FaUserCircle } from "react-icons/fa";
 
 const ClassReview = ({ id }) => {
     const [reviews, setReviews] = useState([])
-    const [updated, setUpdated] = useState(false)
     useEffect(() => {
         axios.get(`https://talk-trek-server.vercel.app/reviews/${id}`)
             .then(result => setReviews(result.data))
-    }, [id, updated])
+    }, [id])
     return (
         <>
             {
@@ -37,8 +36,9 @@ const ClassReview = ({ id }) => {
                                                         />
                                                     </div>
                                                     <p>
-                                                        {review.review}
+                                                        {review.reviews}
                                                     </p>
+                                                    <p>{review.review_date}</p>
                                                 </div>
                                             </div>
                                         </div>)

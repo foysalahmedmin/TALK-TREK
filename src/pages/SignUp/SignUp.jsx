@@ -11,7 +11,6 @@ const SignUp = () => {
     const { SignUp, UpdateProfile } = useAuth()
     const { register, handleSubmit, reset, setError, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
         if (data.mainPassword !== data.confirmPassword) {
             setError("confirmPassword", {
                 type: "validate",

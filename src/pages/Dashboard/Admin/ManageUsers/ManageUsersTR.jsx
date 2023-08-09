@@ -10,7 +10,6 @@ const ManageUsersTR = ({user, refetch}) => {
             axiosSecure.put(`/admin/updateUserRole/${_id}`, { role: role })
                 .then(result => {
                     refetch()
-                    console.log(result.data)
                     if(result.data.modifiedCount){
                         Swal.fire({
                             position: 'center',

@@ -22,7 +22,6 @@ const StudentSelectedClassesTR = ({ classItem, refetch }) => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/student/deleteClass/${_id}?email=${user?.email}`)
                     .then(result => {
-                        console.log(result.data)
                         if (result.data.deletedCount) {
                             refetch()
                             Swal.fire({

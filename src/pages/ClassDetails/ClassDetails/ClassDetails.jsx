@@ -14,7 +14,6 @@ const ClassDetails = () => {
                 .then(result => setSingleClass(result?.data))
         }
     }, [id])
-    console.log(singleClass)
     return (
         <>
             <Details singleClass = {singleClass} />

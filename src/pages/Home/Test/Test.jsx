@@ -8,7 +8,6 @@ const Test = () => {
     const [shuffleWords, setShuffleWords] = useState([])
     const [makeSentence, setMakeSentence] = useState([])
     // const { shuffleWords } = useShuffle(sentence.english);
-    console.log(shuffleWords)
     useEffect(() => {
         const arrayOfWords = sentence?.english.split(" ");
         for (let i = arrayOfWords.length - 1; i > 0; i--) {

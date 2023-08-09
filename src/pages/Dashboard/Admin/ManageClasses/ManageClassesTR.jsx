@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
@@ -10,7 +9,6 @@ const ManageClassesTR = ({classItem, feedbackHandler, refetch}) => {
         if (updateStatus) {
             axiosSecure.put(`/admin/updateStatus/${_id}`, { status: updateStatus, instructorEmail })
                 .then(result => {
-                    console.log(result.data)
                     refetch()
                     if(result.data.modifiedCount > 0){
                         Swal.fire({
